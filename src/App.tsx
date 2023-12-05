@@ -12,11 +12,13 @@ function App() {
 
   return (
     <main className="h-screen flex flex-col md:flex-row md:justify-between">
-      <div className="bg-main-mobile md:bg-main-desktop bg-no-repeat md:min-w-[30rem] outline">
+      <div className="bg-main-mobile md:bg-main-desktop bg-no-repeat md:min-w-[30rem]">
         <BackCard />
         <FrontCard />
       </div>
-      <div className="grid place-content-center px-[12.5em] ml-[8rem]">{state.isSucceed === true ? <Success /> : <InputFormGroup />}</div>
+      <div className="grid place-content-center md:px-[12.5em] md:ml-[8rem]">
+        {state.isSucceed === true ? <Success /> : <InputFormGroup />}
+      </div>
     </main>
   );
 }
