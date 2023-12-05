@@ -1,7 +1,7 @@
 import { ChangeEvent, FC } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { formatCreditCard, formatDate, formatGeneral } from "cleave-zen";
-import { useFormContext } from "../hooks/FormContext";
+import { useFormContext, actionType } from "../hooks/FormContext";
 
 interface FormData {
   cardHolderName: string;
@@ -30,7 +30,7 @@ const InputFormGroup: FC = () => {
   const { updateFormData, submitFormData } = useFormContext();
 
   const onSubmit: SubmitHandler<FormData> = (data: FormData) => {
-    submitFormData({ type: "UPDATE_FORM_DATA", payload: data, isSucceed: true });
+    submitFormData({ type: actionType.SUBMIT, payload: data, isSucceed: true });
   };
 
   return (
@@ -66,7 +66,7 @@ const InputFormGroup: FC = () => {
             maxLength: 30,
             onChange: () =>
               updateFormData({
-                type: "UPDATE_FORM_DATA",
+                type: actionType.UPDATE,
                 payload: {
                   cardHolderName: getValues("cardHolderName"),
                 },
@@ -103,7 +103,7 @@ const InputFormGroup: FC = () => {
             onChange: (e: ChangeEvent<HTMLInputElement>) => {
               setValue("cardNumber", formatCreditCard(e.target.value));
               updateFormData({
-                type: "UPDATE_FORM_DATA",
+                type: actionType.UPDATE,
                 payload: {
                   cardNumber: getValues("cardNumber"),
                 },
@@ -156,7 +156,7 @@ const InputFormGroup: FC = () => {
                     })
                   );
                   updateFormData({
-                    type: "UPDATE_FORM_DATA",
+                    type: actionType.UPDATE,
                     payload: {
                       expDate: {
                         month: getValues("expDate.month"),
@@ -192,7 +192,7 @@ const InputFormGroup: FC = () => {
                     })
                   );
                   updateFormData({
-                    type: "UPDATE_FORM_DATA",
+                    type: actionType.UPDATE,
                     payload: {
                       expDate: {
                         year: getValues("expDate.year"),
@@ -240,7 +240,7 @@ const InputFormGroup: FC = () => {
                   })
                 );
                 updateFormData({
-                  type: "UPDATE_FORM_DATA",
+                  type: actionType.UPDATE,
                   payload: {
                     cvc: getValues("cvc"),
                   },
