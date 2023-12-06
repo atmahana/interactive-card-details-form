@@ -11,12 +11,12 @@ function App() {
   const { state } = useFormContext();
 
   return (
-    <main className="h-screen flex flex-col md:flex-row md:justify-between">
-      <div className="bg-main-mobile md:bg-main-desktop bg-no-repeat md:min-w-[30rem]">
+    <main className="h-screen flex flex-col md:flex-row gap-[4.7rem]">
+      <div className="bg-main-mobile md:bg-main-desktop grid bg-cover bg-no-repeat relative min-h-[240px] md:min-w-[300px] xl:min-w-[483px]">
         <BackCard />
         <FrontCard />
       </div>
-      <div className="grid place-content-center md:px-[12.5em] md:ml-[8rem]">
+      <div className="flex flex-col w-fit mx-auto md:pt-64">
         {state.isSucceed === true ? <Success /> : <InputFormGroup />}
       </div>
     </main>

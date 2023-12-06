@@ -35,7 +35,7 @@ const InputFormGroup: FC = () => {
 
   return (
     <form
-      className="flex flex-col gap-[1.15rem] md:gap-6 px-6 pt-4 md:justify-center"
+      className="flex flex-col gap-[1.15rem] lg:gap-7 px-6 pt-4 md:justify-center max-w-[425px]"
       aria-label="card-details-form"
       onSubmit={handleSubmit(onSubmit)}
     >
@@ -117,7 +117,7 @@ const InputFormGroup: FC = () => {
           </span>
         ) : null}
       </fieldset>
-      <div className="grid grid-flow-col grid-cols-2 gap-2">
+      <div className="grid grid-flow-row min-[375px]:grid-flow-col min-[375px]:grid-cols-2 gap-2">
         <fieldset className="flex flex-col gap-2">
           <label
             htmlFor="expDate"
